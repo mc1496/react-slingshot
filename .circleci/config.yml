@@ -1,0 +1,39 @@
+version: 2.1
+
+executors:
+  my-executor:
+    docker:
+      - image: image: cimg/node:19.1.0
+
+jobs:
+  build:
+    executor: my-executor
+    steps:
+      - run: checkout
+      - run: echo "BUILD"
+
+  test:
+    executor: my-executor
+    steps:
+      - run: checkout
+      - run: echo "TEST"
+
+  analyze:
+    executor: my-executor
+    steps:
+      - run: checkout
+      - run: echo "ANALYZE"
+
+workflows:
+  bta:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+      - analyze:
+          requires:
+            - test
+
+
+# VS Code Extension Version: 1.3.0
