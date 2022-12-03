@@ -11,7 +11,7 @@ jobs:
     steps:
       - checkout
       - run: echo "BUILD"
-      - run: nmp i
+      - run: npm i
       - run: npm run lint
 
   test:
@@ -19,7 +19,7 @@ jobs:
     steps:
       - checkout
       - run: echo "TEST"
-      - run: nmp i
+      - run: npm i
       - run: npm run test
 
   analyze:
