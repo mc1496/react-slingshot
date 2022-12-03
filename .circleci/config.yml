@@ -9,19 +9,19 @@ jobs:
   build:
     executor: my-executor
     steps:
-      - run: checkout
+      - checkout
       - run: echo "BUILD"
 
   test:
     executor: my-executor
     steps:
-      - run: checkout
+      - checkout
       - run: echo "TEST"
 
   analyze:
     executor: my-executor
     steps:
-      - run: checkout
+      - checkout
       - run: echo "ANALYZE"
 
 workflows:
